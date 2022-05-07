@@ -17,3 +17,5 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 ENV PORT=80
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
+LABEL org.opencontainers.image.description "Web frontend"
