@@ -11,7 +11,7 @@ RUN ng build
 
 
 FROM nginx:1.21.6-alpine
-COPY --from=build /workspace/dist /usr/share/nginx/html
+COPY --from=build /workspace/dist/web-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 ENV PORT=80
