@@ -1,10 +1,11 @@
 {
-	"name": "Personal Site Ubuntu",
+	"name": "Slimc site development",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "vscode",
 	"workspaceFolder": "/workspace",
 	"runArgs": [ "--privileged", "-v", "/dev/bus/usb:/dev/bus/usb", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
-	"onCreateCommand": "npm install -g @angular/cli@9",
+	"onCreateCommand": "npm install -g npm@latest",
+	"updateContentCommand": "npm install -g @angular/cli@13",
 	"postCreateCommand": "cd web-frontend/ && npm install",
 
 	// Set *default* container specific settings.json values on container create.
