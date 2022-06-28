@@ -1,0 +1,57 @@
+version: '3.8'
+
+
+networks:
+  public:
+  private:
+
+
+services:
+  backend:
+    image: mcr.microsoft.com/vscode/devcontainers/base:0-focal
+    volumes:
+      - .:/workspace:cached
+    user: vscode
+    command: sleep infinity
+    networks:
+      - public
+      - private
+
+  web-frontend:
+    image: mcr.microsoft.com/vscode/devcontainers/base:0-focal
+    volumes:
+      - .:/workspace:cached
+    user: vscode
+    command: sleep infinity
+    networks:
+      - public
+
+
+  vault:
+    image: vault:latest
+    volumes:
+      - ./development/vault:/vault
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - VAULT_ADDR=http://0.0.0.0:8100
+      - VAULT_API_ADDR=http://0.0.0.0:8100
+      - VAULT_ADDRESS=http://0.0.0.0:8100
+    ports:
+      - 8100:8100
+    networks:
+      - private
+    entrypoint: vault server -dev -config=/vault/config/vault.json
+    restart: unless-stopped
+
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./development/mongo/data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    networks:
+      - private
+    restart: unless-stopped
