@@ -1,0 +1,47 @@
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.231.6/containers/ubuntu/.devcontainer/base.Dockerfile
+
+
+# [Choice] Ubuntu version (use hirsuite or bionic on local arm64/Apple Silicon): hirsute, focal, bionic
+ARG VARIANT="hirsute"
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+
+# [Optional] Uncomment this section to install additional OS packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+
+
+# ENV LANG C.UTF-8
+
+
+# RUN  apt-get update \
+# 	&& apt-get install -y sudo \
+# 	&& apt-get install -y openjdk-8-jdk-headless --no-install-recommends \
+# 	&& apt-get install -y wget curl git xz-utils zip unzip --no-install-recommends \
+#     && apt-get install -y lib32stdc++6 unzip \
+# 	# Clean Up
+# 	&& apt-get autoremove -y \
+# 	&& apt-get clean -y \
+# 	&& rm -rf /var/lib/apt/lists/* 
+
+
+# # Android SDK
+# RUN wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip 
+# RUN mkdir android-sdk && unzip /sdk-tools-linux-4333796.zip -d android-sdk
+# RUN rm /sdk-tools-linux-4333796.zip
+# ENV ANDROID_HOME="/android-sdk"
+# ENV PATH="/android-sdk/tools/bin:/android-sdk/build-tools:/android-sdk/platform-tools:${PATH}"
+
+# # SDK manager
+# RUN yes | sdkmanager --licenses
+# RUN sdkmanager "platforms;android-28" "platform-tools" "build-tools;28.0.3"
+
+# # Flutter
+# RUN wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz
+# RUN tar xf flutter_linux_v1.5.4-hotfix.2-stable.tar.xz 
+# RUN rm flutter_linux_v1.5.4-hotfix.2-stable.tar.xz
+# ENV PATH="/flutter/bin:${PATH}"
+
+# RUN flutter config --no-analytics
+
+# # Set a useful default shell
+# ENV SHELL /bin/bash

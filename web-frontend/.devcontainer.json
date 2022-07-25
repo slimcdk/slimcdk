@@ -1,0 +1,44 @@
+{
+	"name": "slimcdk web frontend",
+	"dockerComposeFile": ["../docker-compose.devcontainer.yml"],
+	"service": "web-frontend",
+	"workspaceFolder": "/workspace/web-frontend",
+	// "runArgs": [ "--privileged", "-v", "/dev/bus/usb:/dev/bus/usb", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	"onCreateCommand": "npm install -g npm@latest",
+	"postCreateCommand": "npm install",
+	"shutdownAction": "none",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"ms-edgedevtools.vscode-edge-devtools",
+		"firefox-devtools.vscode-firefox-debug",
+		"johnpapa.Angular2",
+		"Angular.ng-template",
+		"ms-azuretools.vscode-docker",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"eg2.vscode-npm-script",
+		"ms-kubernetes-tools.vscode-kubernetes-tools"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	// "forwardPorts": [3000, 5432],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"docker-from-docker": "latest",
+		"git": "latest",
+		"git-lfs": "latest",
+		"github-cli": "latest",
+		"node": "lts"
+	}
+}
