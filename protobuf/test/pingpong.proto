@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+package slimcdk.test.pingpong;
+
+option go_package = "pingpong/";
+
+import "google/protobuf/timestamp.proto";
+
+
+service Game {
+  rpc SayPong (Ping) returns (Pong) {}
+}
+
+message Ping {
+  google.protobuf.Timestamp timestamp  = 1;
+}
+
+message Pong {
+  google.protobuf.Timestamp timestamp = 1;
+}

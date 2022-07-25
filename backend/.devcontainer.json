@@ -22,12 +22,13 @@
 		"ms-azuretools.vscode-docker",
 		"donjayamanne.githistory",
 		"eamodio.gitlens",
-		"ms-kubernetes-tools.vscode-kubernetes-tools"
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"peterj.proto"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This can be used to network with other containers or with the host.
-	// "forwardPorts": [3000, 5432],
+	"forwardPorts": [50051],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",

@@ -8,41 +8,46 @@ networks:
 
 services:
   backend:
-    image: mcr.microsoft.com/vscode/devcontainers/base:0-focal
+    build:
+      dockerfile: Dockerfile.dev
+      context: backend
     volumes:
       - .:/workspace:cached
-    user: vscode
-    command: sleep infinity
     networks:
       - public
       - private
+    restart: unless-stopped
+
 
   web-frontend:
-    image: mcr.microsoft.com/vscode/devcontainers/base:0-focal
+    build:
+      dockerfile: Dockerfile.dev
+      context: backend
     volumes:
       - .:/workspace:cached
     user: vscode
     command: sleep infinity
     networks:
       - public
-
-
-  vault:
-    image: vault:latest
-    volumes:
-      - ./development/vault:/vault
-    cap_add:
-      - IPC_LOCK
-    environment:
-      - VAULT_ADDR=http://0.0.0.0:8100
-      - VAULT_API_ADDR=http://0.0.0.0:8100
-      - VAULT_ADDRESS=http://0.0.0.0:8100
-    ports:
-      - 8100:8100
-    networks:
-      - private
-    entrypoint: vault server -dev -config=/vault/config/vault.json
     restart: unless-stopped
+
+
+#  vault:
+#    image: vault:latest
+#    volumes:
+#      - ./development/vault:/vault
+#    cap_add:
+#      - IPC_LOCK
+#    environment:
+#      - VAULT_ADDR=http://0.0.0.0:8100
+#      - VAULT_API_ADDR=http://0.0.0.0:8100
+#      - VAULT_ADDRESS=http://0.0.0.0:8100
+#    ports:
+#      - 8100:8100
+#    networks:
+#      - private
+#    entrypoint: vault server -dev -config=/vault/config/vault.json
+#    restart: unless-stopped
 
 
   mongo:

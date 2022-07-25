@@ -1,0 +1,30 @@
+PROTO_DIR := ../protobuf
+
+BUILD_DIR := internal
+
+PROTO_FLAGS := --proto_path $(PROTO_DIR)
+
+PROTO_SOURCES := $(shell find $(PROTO_DIR) -name '*.proto')
+PROTO_FILES := $(PROTO_SOURCES:$(PROTO_DIR)/%.proto=$(BUILD_DIR)/%.pb.go)
+
+BINS := $(shell go env GOPATH)/bin
+PROTOC := protoc
+
+PROTOC_GEN_PROTO := $(BINS)/protoc-gen-go
+PROTO_FLAGS += --plugin=protoc-gen-go=$(PROTOC_GEN_PROTO)
+
+
+$(BUILD_DIR)/%.pb.go: $(PROTO_DIR)/%.proto
+	echo $<
+
+$(BUILD_DIR)/%.pb.go: $(PROTO_DIR)/%.proto
+	$(PROTOC) $< --go_out=$(BUILD_DIR) --go-grpc_out=$(BUILD_DIR) $(PROTO_FLAGS)
+
+protobuf: $(BUILD_DIR) $(PROTO_FILES)
+
+go_bootstrap:
+	go install google.golang.org/protobuf/cmd/protoc-gen-go
+
+clean:
+	go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1
