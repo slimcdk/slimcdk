@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "web-frontend"
+  "cli": {
+    "analytics": false
+  }
 }
