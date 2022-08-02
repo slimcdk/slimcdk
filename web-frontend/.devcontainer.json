@@ -4,7 +4,7 @@
 	"service": "web-frontend",
 	"workspaceFolder": "/workspace/web-frontend",
 	// "runArgs": [ "--privileged", "-v", "/dev/bus/usb:/dev/bus/usb", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
-	"onCreateCommand": "npm install -g npm@latest",
+	"onCreateCommand": "npm install -g npm@latest @angular/cli",
 	"postCreateCommand": "npm install",
 	"shutdownAction": "none",
 

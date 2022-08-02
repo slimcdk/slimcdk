@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~13.3.9",
     "@angular/platform-browser-dynamic": "~13.3.9",
     "@angular/router": "~13.3.9",
+    "@types/gapi.auth2": "^0.0.56",
     "ng": "^0.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
