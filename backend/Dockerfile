@@ -9,7 +9,7 @@ RUN go mod download -x
 # Build binary
 FROM build-deps as build-env
 COPY . .
-RUN CGO_ENABLED=0 go build -ldflags "-s -w" -v -o /builds/main /src/cmd/*
+RUN CGO_ENABLED=0 go build -ldflags "-s -w" -v -o /builds/main /src/server/*
 
 
 # Generate TLS certificates
@@ -24,4 +24,4 @@ COPY --from=build-env /builds /usr/local/bin
 COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 EXPOSE 3000
 ENV GIN_MODE=release
-CMD ["/usr/local/bin/main"]
+CMD ["/usr/local/bin/main", "serve"]
