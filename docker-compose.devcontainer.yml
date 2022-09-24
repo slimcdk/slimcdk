@@ -22,7 +22,7 @@ services:
   web-frontend:
     build:
       dockerfile: Dockerfile.dev
-      context: backend
+      context: web-frontend
     volumes:
       - .:/workspace:cached
     user: vscode
@@ -50,13 +50,13 @@ services:
 #    restart: unless-stopped
 
 
-  mongo:
-    image: mongo:latest
-    volumes:
-      - ./development/mongo/data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
-    networks:
-      - private
-    restart: unless-stopped
+#  mongo:
+#    image: mongo:latest
+#    volumes:
+#      - ./development/mongo/data:/data/db
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=admin
+#      - MONGO_INITDB_ROOT_PASSWORD=password
+#    networks:
+#      - private
+#    restart: unless-stopped
