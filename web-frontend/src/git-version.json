@@ -1,0 +1,23 @@
+{
+  "dirty": true,
+  "raw": "v0.0.3-54-ge450fc7-dirty",
+  "hash": "ge450fc7",
+  "distance": 54,
+  "tag": "v0.0.3",
+  "semver": {
+    "options": {
+      "loose": false,
+      "includePrerelease": false
+    },
+    "loose": false,
+    "raw": "v0.0.3",
+    "major": 0,
+    "minor": 0,
+    "patch": 3,
+    "prerelease": [],
+    "build": [],
+    "version": "0.0.3"
+  },
+  "suffix": "54-ge450fc7-dirty",
+  "semverString": "0.0.3+54.ge450fc7.dirty"
+}

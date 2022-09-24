@@ -10,7 +10,7 @@ WORKDIR /workspace
 RUN ng build
 
 
-FROM nginx:1.21.6-alpine
+FROM nginx:stable-alpine
 COPY --from=build /workspace/dist/web-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
