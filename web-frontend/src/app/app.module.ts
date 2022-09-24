@@ -4,25 +4,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
+import { CurriculumVitaeComponent } from './pages/about/curriculum-vitae/curriculum-vitae.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { FooterComponent } from './scaffolds/footer/footer.component';
 
-import { MaterialModule } from './material/material.module';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NavbarComponent } from './scaffolds/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationMenuComponent,
+    CurriculumVitaeComponent,
+    ProjectsComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

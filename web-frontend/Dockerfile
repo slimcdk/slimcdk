@@ -2,7 +2,7 @@ FROM node:16.15.0 AS deps
 WORKDIR /workspace
 COPY . .
 RUN npm install
-RUN npm i -g @angular/cli@13
+RUN npm i -g @angular/cli@14
 
 
 FROM deps AS build
